@@ -13,36 +13,15 @@ export class Tab1Page {
   password: IPassword = {
     priority: ''
   }
+  inputNewPassword: string = '';
 
   constructor(
-    private passwordService: PasswordService,
-    private alertController: AlertController
+    private passwordService: PasswordService
   ) { }
 
   createPassword(password: string) {
-    this.password.priority = password;
-
-    this.passwordService.createTicket(this.password).subscribe(
-      (response) => {
-        console.log('Password created successfully', response);
-        this.ticketCreateSucess(response.password)
-        this.password = {
-          priority: ''
-        }
-      },
-      (error) => {
-        console.error('Error creating Password', error);
-      }
-    );
+    this.passwordService.createTicket(password)
   }
 
-  async ticketCreateSucess(password: string) {
-    const alert = await this.alertController.create({
-      header: 'Sucesso',
-      message: `Sua senha é ${password}`,
-      buttons: ['OK'],
-    });
 
-    await alert.present();
-  }
 }

@@ -15,9 +15,10 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-img
+      <!-- <ion-img
         src="https://images.tcdn.com.br/img/img_prod/448593/placa_retire_sua_senha_verde_18167_1_1bb52315224fb612bf58a5ff6e9855dd.png"
-        alt="Attendance"></ion-img>
+        alt="Attendance"></ion-img> -->
+        <ion-input readonly="true" label="Senha" value="{{inputNewPassword}}"></ion-input>
     </ion-card-header>
     <ion-card-content>
       <ion-button expand="block" (click)="createPassword('SG')">Geral</ion-button>
